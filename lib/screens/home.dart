@@ -1,120 +1,106 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          icon: Icon(
-            Icons.settings_applications,
-            color: Colors.white,
+        leading: InkWell(
+          onTap: () {},
+          child: Container(
+            padding: EdgeInsets.all(2),
+            margin: EdgeInsets.all(5),
+            child: Icon(
+              Icons.settings,
+              color: Theme.of(context).primaryColor,
+            ),
+            decoration:
+                BoxDecoration(shape: BoxShape.circle, color: Colors.white),
           ),
-          onPressed: () {},
         ),
         actions: [
-          IconButton(
-            icon: Icon(
-              Icons.circle_notifications,
-              color: Colors.white,
+          InkWell(
+            onTap: () {},
+            child: Container(
+              padding: EdgeInsets.all(2),
+              margin: EdgeInsets.only(right: 20),
+              child: Icon(
+                Icons.notifications,
+                color: Theme.of(context).primaryColor,
+              ),
+              decoration:
+                  BoxDecoration(shape: BoxShape.circle, color: Colors.white),
             ),
-            onPressed: () {},
           ),
         ],
         backgroundColor: Theme.of(context).primaryColor,
-        title: ListTile(
-          title: Center(
-            child: Text(
+        title: Column(
+          children: [
+            Padding(
+              padding: EdgeInsets.only(top: 5),
+              child: Image.asset(
+                'assets/images/qwd.png',
+                fit: BoxFit.fill,
+                height: 30,
+              ),
+              /*Text(
               'فيثاغورث',
               style: TextStyle(color: Colors.white, fontSize: 23),
+            ),*/
             ),
-          ),
-          subtitle: Center(
-              child: Text('متعة تعلم الرياضيات',
-                  style: TextStyle(color: Colors.white, fontSize: 10))),
+            Center(
+              child: Image.asset('assets/images/math.png'),
+              /*Text('متعة تعلم الرياضيات',
+                  style: TextStyle(color: Colors.white, fontSize: 10))*/
+            ),
+          ],
         ),
         centerTitle: true,
-        elevation: 0,
+        elevation: 2,
         bottom: _buildBottomBar(context),
       ),
       body: ListView(
         children: [
-          _yearListItem(context, 'assets/images/5.png', 'الصف الخامس الابتدائي',
-              '20.000 طالب مسجل', 'هذا النص هو مثال لنص يمكن ان يستبدل'),
-          _yearListItem(context, 'assets/images/6.png', 'الصف الخامس الابتدائي',
-              '20.000 طالب مسجل', 'هذا النص هو مثال لنص يمكن ان يستبدل'),
-          _yearListItem(context, 'assets/images/7.png', 'الصف الخامس الابتدائي',
-              '20.000 طالب مسجل', 'هذا النص هو مثال لنص يمكن ان يستبدل'),
-          _yearListItem(context, 'assets/images/8.png', 'الصف الخامس الابتدائي',
-              '20.000 طالب مسجل', 'هذا النص هو مثال لنص يمكن ان يستبدل'),
-          _yearListItem(context, 'assets/images/9.png', 'الصف الخامس الابتدائي',
-              '20.000 طالب مسجل', 'هذا النص هو مثال لنص يمكن ان يستبدل'),
+          SizedBox(
+            height: 7,
+          ),
+          YearListAddress(
+            address: 'الصف الخامس الابتدائي',
+            des:
+                'هذا النص هو مثال لنص يمكن ان يستبدل في نفس المساحة، لقد تم توليد هذا النص من مواد النص العربي، حيث يمكنك ان تولد مثل هذا ',
+            image: 'assets/images/5.png',
+            num: '20.000 طالب مسجل',
+          ),
+          YearListAddress(
+            address: 'الصف الخامس الابتدائي',
+            des:
+                'هذا النص هو مثال لنص يمكن ان يستبدل في نفس المساحة، لقد تم توليد هذا النص من مواد النص العربي، حيث يمكنك ان تولد مثل هذا ',
+            image: 'assets/images/6.png',
+            num: '20.000 طالب مسجل',
+          ),
+          YearListAddress(
+            address: 'الصف الخامس الابتدائي',
+            des:
+                'هذا النص هو مثال لنص يمكن ان يستبدل في نفس المساحة، لقد تم توليد هذا النص من مواد النص العربي، حيث يمكنك ان تولد مثل هذا ',
+            image: 'assets/images/7.png',
+            num: '20.000 طالب مسجل',
+          ),
+          YearListAddress(
+            address: 'الصف الخامس الابتدائي',
+            des:
+                'هذا النص هو مثال لنص يمكن ان يستبدل في نفس المساحة، لقد تم توليد هذا النص من مواد النص العربي، حيث يمكنك ان تولد مثل هذا ',
+            image: 'assets/images/8.png',
+            num: '20.000 طالب مسجل',
+          ),
+          YearListAddress(
+            address: 'الصف الخامس الابتدائي',
+            des:
+                'هذا النص هو مثال لنص يمكن ان يستبدل في نفس المساحة، لقد تم توليد هذا النص من مواد النص العربي، حيث يمكنك ان تولد مثل هذا ',
+            image: 'assets/images/9.png',
+            num: '20.000 طالب مسجل',
+          ),
         ],
       ),
-    );
-  }
-
-  Widget _yearListItem(context, image, address, num, des) {
-    return Container(
-      child: Stack(children: [
-        Positioned(
-          left: 2,
-          height: 180,
-          right: 13,
-          child: Image.asset(
-            image,
-            fit: BoxFit.cover,
-          ),
-        ),
-        Positioned(
-          left: 150,
-          top: 59,
-          child: Text(
-            address,
-            //textAlign: TextAlign.center,
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ),
-        Positioned(
-          top: 83,
-          right: 28,
-          child: Text(
-            num,
-            //textAlign: TextAlign.start,
-            textDirection: TextDirection.rtl,
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 12,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ),
-        Divider(
-          height: 220,
-          color: Colors.white,
-          thickness: 1,
-          endIndent: 29,
-          indent: 130,
-        ),
-        Positioned(
-          top: 120,
-          right: 39,
-          child: Text(
-            des,
-            textAlign: TextAlign.start,
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 13,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ),
-      ]),
     );
   }
 
@@ -149,7 +135,7 @@ class Home extends StatelessWidget {
                           elevation: 0,
                           borderRadius: BorderRadius.all(Radius.circular(30)),
                           child: IconButton(
-                            icon: Icon(Icons.search),
+                            icon: Icon(Icons.search_outlined),
                             onPressed: () {},
                             color: Colors.black38,
                           ),
@@ -164,6 +150,73 @@ class Home extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+class YearListAddress extends StatelessWidget {
+  String image, address, des, num;
+  YearListAddress({this.image, this.address, this.des, this.num});
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(13),
+      child: Stack(alignment: Alignment.centerRight, children: [
+        Image.asset(
+          image,
+          fit: BoxFit.cover,
+          //height: 250,
+        ),
+        Container(
+          padding: EdgeInsets.only(right: 14, top: 4, left: 80, bottom: 1),
+          //height: 200,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              Text(
+                address,
+                textAlign: TextAlign.right,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Text(
+                num,
+                textAlign: TextAlign.right,
+                textDirection: TextDirection.rtl,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 10,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              SizedBox(
+                height: 5,
+              ),
+              Divider(
+                height: 3,
+                color: Colors.white,
+                thickness: 1,
+                indent: 30,
+              ),
+              SizedBox(
+                height: 5,
+              ),
+              Text(
+                des,
+                textAlign: TextAlign.right,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 10,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
+          ),
+        )
+      ]),
     );
   }
 }

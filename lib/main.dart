@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'فيثاغورث',
       theme: ThemeData(
-        primaryColor: Colors.orange,
+        primaryColor: Colors.orangeAccent,
         accentColor: Colors.white,
       ),
       home: Home(),
