@@ -5,6 +5,10 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.vertical(
+              bottom: Radius.circular(10),
+            ),),
         leading: InkWell(
           onTap: () {},
           child: Container(
@@ -70,34 +74,63 @@ class Home extends StatelessWidget {
                 'هذا النص هو مثال لنص يمكن ان يستبدل في نفس المساحة، لقد تم توليد هذا النص من مواد النص العربي، حيث يمكنك ان تولد مثل هذا ',
             image: 'assets/images/5.png',
             num: '20.000 طالب مسجل',
+            year: 5,
           ),
           YearListAddress(
-            address: 'الصف الخامس الابتدائي',
+            address: 'الصف السادس الابتدائي',
             des:
                 'هذا النص هو مثال لنص يمكن ان يستبدل في نفس المساحة، لقد تم توليد هذا النص من مواد النص العربي، حيث يمكنك ان تولد مثل هذا ',
             image: 'assets/images/6.png',
             num: '20.000 طالب مسجل',
+            year: 6,
           ),
           YearListAddress(
-            address: 'الصف الخامس الابتدائي',
+            address: 'الصف السابع الابتدائي',
             des:
                 'هذا النص هو مثال لنص يمكن ان يستبدل في نفس المساحة، لقد تم توليد هذا النص من مواد النص العربي، حيث يمكنك ان تولد مثل هذا ',
             image: 'assets/images/7.png',
             num: '20.000 طالب مسجل',
+            year: 7,
           ),
           YearListAddress(
-            address: 'الصف الخامس الابتدائي',
+            address: 'الصف الثامن الابتدائي',
             des:
                 'هذا النص هو مثال لنص يمكن ان يستبدل في نفس المساحة، لقد تم توليد هذا النص من مواد النص العربي، حيث يمكنك ان تولد مثل هذا ',
             image: 'assets/images/8.png',
             num: '20.000 طالب مسجل',
+            year: 8,
           ),
           YearListAddress(
-            address: 'الصف الخامس الابتدائي',
+            address: 'الصف التاسع الابتدائي',
             des:
                 'هذا النص هو مثال لنص يمكن ان يستبدل في نفس المساحة، لقد تم توليد هذا النص من مواد النص العربي، حيث يمكنك ان تولد مثل هذا ',
             image: 'assets/images/9.png',
             num: '20.000 طالب مسجل',
+            year: 9,
+          ),
+          YearListAddress(
+            address: 'الصف العاشر الابتدائي',
+            des:
+            'هذا النص هو مثال لنص يمكن ان يستبدل في نفس المساحة، لقد تم توليد هذا النص من مواد النص العربي، حيث يمكنك ان تولد مثل هذا ',
+            image: 'assets/images/10.png',
+            num: '20.000 طالب مسجل',
+            year: 10,
+          ),
+          YearListAddress(
+            address: 'الصف الحادي عشر الابتدائي',
+            des:
+            'هذا النص هو مثال لنص يمكن ان يستبدل في نفس المساحة، لقد تم توليد هذا النص من مواد النص العربي، حيث يمكنك ان تولد مثل هذا ',
+            image: 'assets/images/11.png',
+            num: '20.000 طالب مسجل',
+            year: 11,
+          ),
+          YearListAddress(
+            address: 'الصف الثاني عشر الابتدائي',
+            des:
+            'هذا النص هو مثال لنص يمكن ان يستبدل في نفس المساحة، لقد تم توليد هذا النص من مواد النص العربي، حيث يمكنك ان تولد مثل هذا ',
+            image: 'assets/images/12.png',
+            num: '20.000 طالب مسجل',
+            year: 12,
           ),
         ],
       ),
@@ -156,7 +189,8 @@ class Home extends StatelessWidget {
 
 class YearListAddress extends StatelessWidget {
   String image, address, des, num;
-  YearListAddress({this.image, this.address, this.des, this.num});
+  int  year;
+  YearListAddress({this.image, this.address, this.des, this.num, this.year});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -168,7 +202,7 @@ class YearListAddress extends StatelessWidget {
           //height: 250,
         ),
         Container(
-          padding: EdgeInsets.only(right: 14, top: 4, left: 80, bottom: 1),
+          padding: EdgeInsets.only(right: 10, top: 4, left: year <= 9 ? 83 : 131, bottom: 1),
           //height: 200,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.end,
@@ -199,7 +233,7 @@ class YearListAddress extends StatelessWidget {
                 height: 3,
                 color: Colors.white,
                 thickness: 1,
-                indent: 30,
+                indent: 33,
               ),
               SizedBox(
                 height: 5,
