@@ -6,9 +6,10 @@ class Home extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.vertical(
-              bottom: Radius.circular(10),
-            ),),
+          borderRadius: BorderRadius.vertical(
+            bottom: Radius.circular(10),
+          ),
+        ),
         leading: InkWell(
           onTap: () {},
           child: Container(
@@ -111,7 +112,7 @@ class Home extends StatelessWidget {
           YearListAddress(
             address: 'الصف العاشر الابتدائي',
             des:
-            'هذا النص هو مثال لنص يمكن ان يستبدل في نفس المساحة، لقد تم توليد هذا النص من مواد النص العربي، حيث يمكنك ان تولد مثل هذا ',
+                'هذا النص هو مثال لنص يمكن ان يستبدل في نفس المساحة، لقد تم توليد هذا النص من مواد النص العربي، حيث يمكنك ان تولد مثل هذا ',
             image: 'assets/images/10.png',
             num: '20.000 طالب مسجل',
             year: 10,
@@ -119,7 +120,7 @@ class Home extends StatelessWidget {
           YearListAddress(
             address: 'الصف الحادي عشر الابتدائي',
             des:
-            'هذا النص هو مثال لنص يمكن ان يستبدل في نفس المساحة، لقد تم توليد هذا النص من مواد النص العربي، حيث يمكنك ان تولد مثل هذا ',
+                'هذا النص هو مثال لنص يمكن ان يستبدل في نفس المساحة، لقد تم توليد هذا النص من مواد النص العربي، حيث يمكنك ان تولد مثل هذا ',
             image: 'assets/images/11.png',
             num: '20.000 طالب مسجل',
             year: 11,
@@ -127,7 +128,7 @@ class Home extends StatelessWidget {
           YearListAddress(
             address: 'الصف الثاني عشر الابتدائي',
             des:
-            'هذا النص هو مثال لنص يمكن ان يستبدل في نفس المساحة، لقد تم توليد هذا النص من مواد النص العربي، حيث يمكنك ان تولد مثل هذا ',
+                'هذا النص هو مثال لنص يمكن ان يستبدل في نفس المساحة، لقد تم توليد هذا النص من مواد النص العربي، حيث يمكنك ان تولد مثل هذا ',
             image: 'assets/images/12.png',
             num: '20.000 طالب مسجل',
             year: 12,
@@ -189,7 +190,7 @@ class Home extends StatelessWidget {
 
 class YearListAddress extends StatelessWidget {
   String image, address, des, num;
-  int  year;
+  int year;
   YearListAddress({this.image, this.address, this.des, this.num, this.year});
   @override
   Widget build(BuildContext context) {
@@ -199,10 +200,12 @@ class YearListAddress extends StatelessWidget {
         Image.asset(
           image,
           fit: BoxFit.cover,
+          width: MediaQuery.of(context).size.width,
           //height: 250,
         ),
         Container(
-          padding: EdgeInsets.only(right: 10, top: 4, left: year <= 9 ? 83 : 131, bottom: 1),
+          padding: EdgeInsets.only(
+              right: 10, top: 4, left: year <= 9 ? 144 : 231, bottom: year <= 9 ? 13 : 19),
           //height: 200,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.end,
@@ -212,7 +215,8 @@ class YearListAddress extends StatelessWidget {
                 textAlign: TextAlign.right,
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: 18,
+                  fontSize: year <= 9 ? MediaQuery.of(context).size.width * 0.05
+                  : MediaQuery.of(context).size.width * 0.046,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -222,7 +226,7 @@ class YearListAddress extends StatelessWidget {
                 textDirection: TextDirection.rtl,
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: 10,
+                  fontSize: MediaQuery.of(context).size.width * 0.02,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -233,7 +237,7 @@ class YearListAddress extends StatelessWidget {
                 height: 3,
                 color: Colors.white,
                 thickness: 1,
-                indent: 33,
+                indent: MediaQuery.of(context).size.width * 0.22,
               ),
               SizedBox(
                 height: 5,
@@ -243,7 +247,8 @@ class YearListAddress extends StatelessWidget {
                 textAlign: TextAlign.right,
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: 10,
+                  fontSize: year <= 9 ? MediaQuery.of(context).size.width * 0.024
+                  : MediaQuery.of(context).size.width * 0.017,
                   fontWeight: FontWeight.bold,
                 ),
               ),
