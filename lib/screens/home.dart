@@ -205,7 +205,7 @@ class YearListAddress extends StatelessWidget {
         ),
         Container(
           padding: EdgeInsets.only(
-              right: 10, top: 4, left: year <= 9 ? 144 : 231, bottom: year <= 9 ? 13 : 19),
+              right: 10, top: 4, left: year <= 9 ? 144 : 158, bottom: year <= 9 ? 13 : 1),
           //height: 200,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.end,
@@ -215,7 +215,7 @@ class YearListAddress extends StatelessWidget {
                 textAlign: TextAlign.right,
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: year <= 9 ? MediaQuery.of(context).size.width * 0.05
+                  fontSize: year <= 9 ? MediaQuery.of(context).size.width * 0.055
                   : MediaQuery.of(context).size.width * 0.046,
                   fontWeight: FontWeight.bold,
                 ),
@@ -226,7 +226,7 @@ class YearListAddress extends StatelessWidget {
                 textDirection: TextDirection.rtl,
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: MediaQuery.of(context).size.width * 0.02,
+                  fontSize: MediaQuery.of(context).size.width * 0.025,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -237,7 +237,7 @@ class YearListAddress extends StatelessWidget {
                 height: 3,
                 color: Colors.white,
                 thickness: 1,
-                indent: MediaQuery.of(context).size.width * 0.22,
+                indent: MediaQuery.of(context).size.width * 0.05,
               ),
               SizedBox(
                 height: 5,
